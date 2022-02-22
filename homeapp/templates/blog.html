@@ -1,0 +1,245 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Job Details || JobHere</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!--  Theme main style
+        ============================================ -->
+    <link rel="stylesheet" href="{% static 'dist/css/blog.css'%}">
+    <link rel="stylesheet" href="{% static 'dist/css/material-design-iconic-font.css'%}">
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+
+
+
+</head>
+
+<body class="is-boxed has-animations">
+
+    <div class="body-wrap boxed-container">
+        <header class="site-header">
+            <div class="container">
+                <div class="site-header-inner">
+                    <div class="brand header-brand">
+                        <ul style="display: flex;align-items: center;">
+                            <li class="lights-toggle">
+                                <input id="lights-toggle" type="checkbox" name="lights-toggle" class="switch"
+                                    checked="checked">
+                                <label for="lights-toggle" class="text-xs"><span>Turn me <span
+                                            class="label-text">dark</span></span></label>
+                            </li>
+                            <li class="m-0">
+                                <a href="#"><img class="header-logo-image asset-light"
+                                        src="{% static 'dist/images/logo-light.svg' %}" alt="Logo"><img
+                                        class="header-logo-image asset-dark"
+                                        src="{% static 'dist/images/logo-dark.svg' %}" alt="Logo"></a>
+                            </li>
+                            <li><a id="len1" class="hoverable" href="#">Home</a></li>
+                            <li><a id="len2" class="hoverable" href="#">About</a></li>
+                            <li><a id="len3" class="hoverable" href="#">Portfolio</a></li>
+                            <li><a id="len4" class="hoverable" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <main>
+            <section class="hero cta section">
+                <div class="container">
+                    <div class="hero-inner">
+                        <div class="hero-copy text-center">
+                            <h1 class="hero-title mt-0">{{card.company_name}}</h1>
+                            <p class=""><a class="home" href="/">Home</a>/ Job Details</p>
+                            <p
+                                style="line-height: 5px;margin-top: 14px;font-size: 11px;display: flex;justify-content: center;">
+                                {{blog.views}} views</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card view start -->
+
+            <section>
+                <!--Start of Single Job Post Area-->
+                <div class="single-job-post-area ptb-130 ptb-sm-60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="single-job-content">
+                                <div class="area-title">
+                                    <div class="single-job-post">
+                                        <!-- <div class="img-icon">
+                                                        <img src="{% static 'images/company-logo/1.png' %}" alt="">
+                                                    </div>  -->
+                                        <div class="address" style=" margin-bottom: 34px;">
+                                            <p> Position : {{card.position}}</h6>
+                                            {% comment %} <p>Position : {{card.position}}</p> {% endcomment %}
+                                            {% comment %} <p>Last Date : {{card.last_date}}</p> {% endcomment %}
+                                            <p>Salary : {{card.salary}}</p>
+                                            <p>Batch : {{card.batch}}</p>
+                                            <p>Loc. : {{card.location}}</p>
+                                            <span class="cta-cta"><a target="_blank" class="button button-primary"
+                                                    href="{{blog.link}}">Apply Now</a>
+                                            </span>
+                                        </div>
+                                        {% comment %} <div class="button-box"><a href="{{blog.link}}" target="_blank"
+                                                class="button button-black">APPLY NOW</a>
+                                        </div> {% endcomment %}
+                                    </div>
+                                </div>
+                                <h6 class="section-title mt-0">Job Description</h6>
+                                <div class="single-job-form">
+                                    {{blog.content|safe}}
+                                </div>
+                                <h6 class="section-title ">Required Skill</h6>
+                                <div class="single-job-form">
+                                    <div class="single-info mb-14">
+                                        <!-- Mark Button in skill 
+                                                    <span class="mark-icon block pl-27"></span> -->
+                                        {{blog.Skill_des|safe}}
+                                    </div>
+                                </div>
+                                
+                                <h6 class="section-title ">Min Qualifications</h6>
+                            
+                                <div class="single-job-form">
+                                    <div class="single-info mb-14">
+                                        <!--<span class="number block"><span>1.</span>Some form,t the my have suffered alteration in some form,andomised words</span>-->
+                                        {{blog.min_qulification|safe}}
+                                    </div>
+                                </div>
+                                <h6 class="section-title ">How to Apply</h6>
+                                
+                                <div class="single-job-form">
+                                    <p>{{blog.how_to_apply|safe}}</p>
+                                </div>
+                                <div class="buttonback">
+                                    <a href="/" class="button button-primary mb-24 mt-24">back</a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--End of Single Job Post Area-->
+
+            </section>
+        </main>
+
+    </div>
+
+
+    <!--Main Wrapper Start-->
+
+
+    <!--Start of footer Area-->
+    <footer class="footer-area">
+        <div class="footer-top bg-opacity-dark-blue-90 ptb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 pb-sm-30">
+                        <div class="subscribe-text">
+                            <h3>Subscribe Us</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="subscribe-form">
+                            <input type="email" name="email" id="eamil" placeholder="Enter Your Email.....">
+                            <button>Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-widget-area ptb-80 pb-sm-30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-5">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white mb-26">Get In Touch</h3>
+                            <ul class="footer-list">
+                                <li><a href="tel:+917470946424">+91 7470946424</a></li>
+                                <li><a href="tel:+8719963681">+91 8719963681</a></li>
+                                <li><a href="tel:+8251023881">+91 8251023881</a></li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                    <div class="col-lg-3 col-md-3">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white mb-21">By Regions</h3>
+                            <ul class="footer-list">
+                                <li><a href="/">Eurasia Region</a></li>
+
+                                <li><a href="/">America Region</a></li>
+                                <li><a href="/">Africa Region</a></li>
+
+
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 d-md-none d-lg-block">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white mb-21">Job Types</h3>
+                            <ul class="footer-list">
+                                <li><a href="/">Full Time Job</a></li>
+                                <li><a href="/">Internship Job</a></li>
+                                <li><a href="/">Part Time Job</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="single-footer-widget">
+                            <h3 class="text-white mb-21">Search More For</h3>
+                            <ul class="footer-list">
+                                <li><a href="/">Recent Jobs</a></li>
+                                <li><a href="/">Courses</a></li>
+                                <li><a href="/">Articles</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End of Footer Widget-area-->
+        <!-- Start of Footer area -->
+        <div class="copyright-area text-center ptb-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-text">
+                            <span class="text-white block">&copy; 2022 <span> Perpendicular Programming all rights
+                                    reserved </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End of Footer area -->
+    </div>
+    <!--End of footer Area-->
+    <!--End of Main Wrapper Area-->
+
+    <!--Start of Login Form-->
+
+    <script src="{% static 'dist/js/main.min.js' %}"></script>
+
+</body>
+
+</html>
